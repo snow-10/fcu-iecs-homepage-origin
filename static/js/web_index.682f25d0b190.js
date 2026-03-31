@@ -29,7 +29,11 @@ document.querySelector('#modalForVideo').addEventListener('hide.bs.modal', () =>
 });
 
 window.addEventListener('load', () => {
-    let index_about = document.querySelector('.index-about-background');
-    let bgimg = index_about.dataset.bgimg;
-    document.getElementsByClassName('index-about-background')[0].style.backgroundImage = `url(${location.origin + bgimg})`;
+    const index_about = document.querySelector('.index-about-background');
+    if (index_about && index_about.dataset) {
+        const bgimg = index_about.dataset.bgimg;
+        if (bgimg) {
+            document.getElementsByClassName('index-about-background')[0].style.backgroundImage = `url(${location.origin + bgimg})`;
+        }
+    }
 });
